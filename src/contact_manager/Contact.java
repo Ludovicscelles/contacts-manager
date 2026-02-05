@@ -40,6 +40,7 @@ public class Contact {
 
   // Returns a formatted multi-line string representation of the contact for
   // console display.
+  @Override
   public String toString() {
     return """
         Contact:
