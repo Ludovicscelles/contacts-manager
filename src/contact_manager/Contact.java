@@ -38,6 +38,11 @@ public class Contact {
 
   }
 
+  // Getters and setters for all attributes
+  public int getId() {
+    return id;
+  }
+
   // Returns a formatted multi-line string representation of the contact for
   // console display.
   public String toString() {
