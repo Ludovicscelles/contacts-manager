@@ -38,6 +38,21 @@ public class Contact {
 
   }
 
+  // Method to update the contact's attributes based on another contact object.
+  public void updateFrom(Contact contactToUpdate) {
+    this.lastname = contactToUpdate.lastname;
+    this.firstname = contactToUpdate.firstname;
+    this.phoneNumber = contactToUpdate.phoneNumber;
+    this.email = contactToUpdate.email;
+    this.address = contactToUpdate.address;
+    this.city = contactToUpdate.city;
+    this.state = contactToUpdate.state;
+    this.zipCode = contactToUpdate.zipCode;
+    this.country = contactToUpdate.country;
+    this.company = contactToUpdate.company;
+    this.birthday = contactToUpdate.birthday;
+  }
+
   // Getters and setters for all attributes
   public int getId() {
     return id;

@@ -29,6 +29,17 @@ public class ContactManager {
     contacts.add(contact);
   }
 
+  // Method to update a contact's information based on its ID. 
+  // It retrieves the existing contact and updates its attributes using the updateFrom method of the Contact class.
+  public boolean updateContact(int id, Contact updatedContact) {
+    Contact existingContact = getById(id);
+    if (existingContact == null) {
+      return false;
+    }
+    existingContact.updateFrom(updatedContact);
+    return true;
+  }
+
   public boolean removeContactById(int id) {
     Contact contactToRemove = getById(id);
     if (contactToRemove != null) {
