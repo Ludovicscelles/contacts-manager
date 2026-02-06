@@ -1,6 +1,7 @@
 package contact_manager;
 
 import java.time.LocalDate;
+import java.util.List;
 
 // Main class to demonstrate the functionality of the ContactManager and Contact classes.
 public class Main {
@@ -60,6 +61,14 @@ public class Main {
         // List contacts after update to verify
         System.out.println("Contacts after update:");
         contactManager.listContacts();
+
+        // Demonstrating the search functionality
+        System.out.println("Search results for 'Smith':");
+        List<Contact> searchResults = contactManager.searchContacts("Smith");
+
+        for (Contact contact : searchResults) {
+            System.out.println(contact);
+        }
 
     }
 

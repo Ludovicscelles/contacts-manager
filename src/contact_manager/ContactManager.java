@@ -29,8 +29,9 @@ public class ContactManager {
     contacts.add(contact);
   }
 
-  // Method to update a contact's information based on its ID. 
-  // It retrieves the existing contact and updates its attributes using the updateFrom method of the Contact class.
+  // Method to update a contact's information based on its ID.
+  // It retrieves the existing contact and updates its attributes using the
+  // updateFrom method of the Contact class.
   public boolean updateContact(int id, Contact updatedContact) {
     Contact existingContact = getById(id);
     if (existingContact == null) {
@@ -47,6 +48,27 @@ public class ContactManager {
       return true;
     }
     return false;
+  }
+
+  public List<Contact> searchContacts(String query) {
+
+    String q = query.toLowerCase();
+
+    List<Contact> results = new ArrayList<>();
+
+    for (Contact contact : contacts) {
+      if (field(contact.getLastname()).contains(q)
+          || field(contact.getFirstname()).contains(q)
+          || field(contact.getEmail()).contains(q)
+          || field(contact.getCompany()).contains(q)) {
+        results.add(contact);
+      }
+    }
+    return results;
+  }
+
+  private String field(String field) {
+    return field == null ? "" : field.toLowerCase();
   }
 
   public void listContacts() {
