@@ -2,6 +2,7 @@ package contact_manager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.time.LocalDate;
 
 /**
  * Manages a collection of contacts.
@@ -29,16 +30,55 @@ public class ContactManager {
     contacts.add(contact);
   }
 
-  // Method to update a contact's information based on its ID.
-  // It retrieves the existing contact and updates its attributes using the
-  // updateFrom method of the Contact class.
-  public boolean updateContact(int id, Contact updatedContact) {
+  public boolean updateContactById(int id, String lastname, String firstname, String phone, String email,
+      String address,
+      String city, String state, String zipCode, String country, String company, LocalDate birthday) {
+
     Contact existingContact = getById(id);
     if (existingContact == null) {
       return false;
     }
-    existingContact.updateFrom(updatedContact);
+
+    if (hasText(lastname)) {
+      existingContact.setLastname(lastname);
+    }
+
+    if (hasText(firstname)) {
+      existingContact.setFirstname(firstname);
+    }
+    if (hasText(phone)) {
+      existingContact.setPhoneNumber(phone);
+    }
+    if (hasText(email)) {
+      existingContact.setEmail(email);
+    }
+    if (hasText(address)) {
+      existingContact.setAddress(address);
+    }
+    if (hasText(city)) {
+      existingContact.setCity(city);
+    }
+    if (hasText(state)) {
+      existingContact.setState(state);
+    }
+    if (hasText(zipCode)) {
+      existingContact.setZipCode(zipCode);
+    }
+    if (hasText(country)) {
+      existingContact.setCountry(country);
+    }
+    if (hasText(company)) {
+      existingContact.setCompany(company);
+    }
+    if (birthday != null) {
+      existingContact.setBirthday(birthday);
+    }
+
     return true;
+  }
+
+  private boolean hasText(String text) {
+    return text != null && !text.isBlank();
   }
 
   public boolean removeContactById(int id) {

@@ -86,7 +86,7 @@ public class Main {
                 }
 
                 case 4 -> {
-                    System.out.print("Enter contact ID to update");
+                    System.out.print("Enter contact ID to update: ");
                     int idToUpdate = scanner.nextInt();
                     scanner.nextLine();
 
@@ -120,20 +120,24 @@ public class Main {
                     System.out.print("Enter a new company: ");
                     String newCompany = scanner.nextLine();
 
-                    System.out.print("Enter a new date of birth: ");
-                    String newBirthdayInput = scanner.nextLine();
-                    LocalDate newBirthday = LocalDate.parse(newBirthdayInput);
+                    LocalDate newBirthday = null;
+                    while (newBirthday == null) {
+                        try {
+                            System.out.print("Enter a new birthday (YYYY-MM-DD): ");
+                            String newBirthdayInput = scanner.nextLine();
+                            newBirthday = LocalDate.parse(newBirthdayInput);
+                        } catch (Exception e) {
+                            System.out.println("Invalid date format. Please try again.");
+                        }
+                    }
 
-                    Contact updatedContact = new Contact(newLastname, newFirstname, newPhone, newEmail, newAddress,
-                            newCity, newState, newZipCode, newCountry, newCompany, newBirthday);
-
-                    boolean updated = contactManager.updateContact(idToUpdate, updatedContact);
+                    boolean updated = contactManager.updateContactById(idToUpdate, newLastname, newFirstname, newPhone,
+                            newEmail, newAddress, newCity, newState, newZipCode, newCountry, newCompany, newBirthday);
                     if (updated) {
                         System.out.println("Contact updated successfully.");
                     } else {
-                        System.out.println("Contact not found. Update failed.");
+                        System.out.println("Contact not found.");
                     }
-
                 }
 
                 case 0 -> {
