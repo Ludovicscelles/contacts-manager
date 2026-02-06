@@ -33,7 +33,7 @@ public class Main {
         }
 
         // Demonstrating the removal of a contact
-        boolean removed = contactManager.removeContactById(2);
+        boolean removed = contactManager.removeContactById(3);
 
         if (removed) {
             System.out.println("Contact with specified ID removed successfully.");
@@ -45,5 +45,22 @@ public class Main {
         System.out.println("Contacts after removal:");
         contactManager.listContacts();
 
+        // Demonstrating the update of a contact
+        Contact updatedContact = new Contact("Smith", "Jane", "1112223333", "jane.smith@example.com", "789 Oak St",
+                "Newtown",
+                "New York", "54321", "USA", "Tech Company", LocalDate.of(1993, 2, 2));
+        boolean updated = contactManager.updateContact(2, updatedContact);
+
+        if (updated) {
+            System.out.println("Contact with specified ID updated successfully.");
+        } else {
+            System.out.println("Contact with specified ID not found. No contact updated.");
+        }
+
+        // List contacts after update to verify
+        System.out.println("Contacts after update:");
+        contactManager.listContacts();
+
     }
+
 }
