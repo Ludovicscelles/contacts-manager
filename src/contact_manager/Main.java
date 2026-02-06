@@ -26,11 +26,24 @@ public class Main {
         Contact found = contactManager.getById(2);
 
         if (found != null) {
-            System.out.println("Contact trouvé : ");
+            System.out.println("Contact found : ");
             System.out.println(found);
         } else {
-            System.out.println("Aucun contact trouvé avec l'id indiqué.");
+            System.out.println("Contact with the specified ID not found.");
         }
+
+        // Demonstrating the removal of a contact
+        boolean removed = contactManager.removeContactById(2);
+
+        if (removed) {
+            System.out.println("Contact with specified ID removed successfully.");
+        } else {
+            System.out.println("Contact with specified ID not found. No contact removed.");
+        }
+
+        // List contacts after removal to verify
+        System.out.println("Contacts after removal:");
+        contactManager.listContacts();
 
     }
 }
