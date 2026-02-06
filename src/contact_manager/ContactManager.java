@@ -29,7 +29,6 @@ public class ContactManager {
     contacts.add(contact);
   }
 
-
   public boolean removeContactById(int id) {
     Contact contactToRemove = getById(id);
     if (contactToRemove != null) {
