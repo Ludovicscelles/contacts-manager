@@ -1,6 +1,7 @@
 package contact_manager;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 // Main class to demonstrate the functionality of the ContactManager and Contact classes.
@@ -139,6 +140,38 @@ public class Main {
                     } else {
                         System.out.println("Contact not found.");
                     }
+                }
+                case 5 -> {
+                    System.out.print("Enter contact ID to delete: ");
+
+                    if (scanner.hasNextInt()) {
+                        int idToDelete = scanner.nextInt();
+                        scanner.nextLine();
+
+                        boolean removed = contactManager.removeContactById(idToDelete);
+                        if (removed) {
+                            System.out.println("Contact deleted successfully.");
+                        } else {
+                            System.out.println("Contact not found.");
+                        }
+
+                    } else {
+                        System.out.println("Invalid input. Please enter a valid contact ID.");
+                        scanner.nextLine();
+                    }
+                }
+
+                case 6 -> {
+                    System.out.print("Enter lastname or firstname: ");
+                    String search = scanner.nextLine().trim();
+
+                    List<Contact> result = contactManager.searchContacts(search);
+                    if (result.isEmpty()) {
+                        System.out.println("Please try again with a different lastname or firstname.");
+                    } else {
+                        result.forEach(System.out::println);
+                    }
+
                 }
 
                 case 0 -> {
