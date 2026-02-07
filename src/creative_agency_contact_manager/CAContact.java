@@ -146,6 +146,7 @@ public class CAContact {
         Entry date: %s,
         Salary: %s,
         Address: %s
+   
         """.formatted(id, lastname, firstname, email, phoneNumber, department, job, responsibilities, birthday,
         entryDate, salary, address);
   }
