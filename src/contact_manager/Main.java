@@ -1,7 +1,6 @@
 package contact_manager;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Scanner;
 
 // Main class to demonstrate the functionality of the ContactManager and Contact classes.
@@ -11,6 +10,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         ContactManager contactManager = new ContactManager();
+
+        contactManager.seed();
 
         while (true) {
 
