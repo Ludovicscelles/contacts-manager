@@ -46,7 +46,6 @@ public class CAAddress {
 
   public void setPostalCode(String postalCode) {
     this.postalCode = postalCode;
-
   }
 
   public String getCountry() {
@@ -61,5 +60,4 @@ public class CAAddress {
   public String toString() {
     return "%s, %s, %s, %s, %s".formatted(number, street, city, postalCode, country);
   }
-
 }

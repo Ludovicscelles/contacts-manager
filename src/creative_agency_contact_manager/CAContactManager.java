@@ -10,7 +10,7 @@ public class CAContactManager {
   private final List<CAContact> caContacts = new ArrayList<>();
 
   public List<CAContact> getCaContacts() {
-    return caContacts;
+    return new ArrayList<>(caContacts);
   }
 
   public void listCaContacts() {
@@ -22,6 +22,9 @@ public class CAContactManager {
   }
 
   public void addCaContact(CAContact caContact) {
+    if (caContact == null) {
+      throw new IllegalArgumentException("CAContact cannot be null");
+    }
     caContacts.add(caContact);
   }
 
