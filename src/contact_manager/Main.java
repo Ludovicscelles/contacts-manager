@@ -11,8 +11,7 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         ContactManager contactManager = new ContactManager();
-
-        contactManager.seed();
+        ContactSeeder.seed(contactManager);
 
         while (true) {
 
